@@ -20,12 +20,6 @@
     <link rel="stylesheet" type="text/css" href="semantic\dist/components/sidebar.css">
     <link rel="stylesheet" type="text/css" href="semantic\dist/components/transition.css">
     <style type="text/css">
-        @font-face {
-            font-family: 'AaAugust';
-            src: url(https://cdn.discordapp.com/attachments/727054995131990016/923842736157753354/AaAugust.ttf) format('ttf');
-            font-style: normal;
-            font-weight: normal;
-        }
 
         .hidden.menu {
           display: none;
@@ -118,6 +112,7 @@
         <script src="semantic\dist/components/visibility.js"></script>
         <script src="semantic\distcomponents/sidebar.js"></script>
         <script src="semantic\dist/components/transition.js"></script>
+        <script src="semantic\dist/react.js"></script>
         <script>
             $(document)
               .ready(function() {
@@ -150,9 +145,9 @@
             <div class="ui large top fixed menu transition hidden">
               <div class="ui container">
                 <a class="active item">Home</a>
-                <a class="item">Work</a>
-                <a class="item">Company</a>
-                <a class="item">Careers</a>
+                <a class="item">meal</a>
+                <a class="item">schedule</a>
+                <a class="item">inform</a>
                 <div class="right menu">
                   <div class="item">
                     <a class="ui button">Log in</a>
@@ -167,14 +162,12 @@
             <!-- Sidebar Menu -->
             <div class="ui vertical inverted sidebar menu left">
               <a class="active item">Home</a>
-              <a class="item">Work</a>
-              <a class="item">Company</a>
-              <a class="item">Careers</a>
-              <a class="item">Login</a>
-              <a class="item">Signup</a>
+              <a class="item">meal</a>
+              <a class="item">schedule</a>
+              <a class="item">inform</a>
             </div>
-            
-            
+
+
             <!-- Page Contents -->
             <div class="pusher">
               <div class="ui inverted vertical masthead center aligned segment">
@@ -185,22 +178,21 @@
                       <i class="sidebar icon"></i>
                     </a>
                     <a class="active item">Home</a>
-                    <a class="item">Work</a>
-                    <a class="item">Company</a>
-                    <a class="item">Careers</a>
+                    <a class="item">급식</a>
+                    <a class="item">학사일정</a>
+                    <a class="item">동아리소개</a>
                     <div class="right item">
-                      <a class="ui inverted button">Log in</a>
-                      <a class="ui inverted button">Sign Up</a>
                     </div>
                   </div>
                 </div>
             
                 <div class="ui text container">
                   <h1 class="ui inverted header">
-                    만수고등학교 AppFly 웹 개발
+                    AppFly 웹 개발
                   </h1>
-                  <h2>Do whatever you want when you want to.</h2>
-                  <div class="ui huge primary button">Get Started <i class="right arrow icon"></i></div>
+                  <h2>Test Page</h2>
+                  <div class="ui huge primary button">급식보러가기 <i class="right arrow icon"></i></div>
+                  <button type="submit" div.class="ui huge primary button" onClick="location.href='meal.html'"></button>
                 </div>
             
               </div>
@@ -209,19 +201,10 @@
                 <div class="ui middle aligned stackable grid container">
                   <div class="row">
                     <div class="eight wide column">
-                      <h3 class="ui header">We Help Companies and Companions</h3>
-                      <p>We can give your company superpowers to do things that they never thought possible. Let us delight your customers and empower your needs...through pure data analytics.</p>
-                      <h3 class="ui header">We Make Bananas That Can Dance</h3>
-                      <p>Yes that's right, you thought it was the stuff of dreams, but even bananas can be bioengineered.</p>
-                    </div>
-                    <div class="six wide right floated column">
-                      <img src="assets/images/wireframe/white-image.png" class="ui large bordered rounded image">
+                      <h3 class="ui header">학사일정과 급식확인을 한번에.</h3>
+                      <p>학사일정과 급식을 학교홈페이지에 들어가보지 않고도 확인하기.</p>
                     </div>
                   </div>
-                  <div class="row">
-                    <div class="center aligned column">
-                      <a class="ui huge button">Check Them Out</a>
-                    </div>
                   </div>
                 </div>
               </div>
