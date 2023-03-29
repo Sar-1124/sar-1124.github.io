@@ -7,6 +7,23 @@
     <title>급식표</title>
 </head>
 <body>
-    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.js" integrity="sha512-6DC1eE3AWg1bgitkoaRM1lhY98PxbMIbhgYCGV107aZlyzzvaWCW1nJW2vDuYQm06hXrW0As6OGKcIaAVWnHJw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    $.ajax({
+
+            method: "POST",
+
+            url: "some.php",
+
+            data: { name: "John", location: "Boston" }
+
+           })
+
+      .done(function( msg ) {
+
+           alert( "Data Saved: " + msg );
+
+           });
+
+
 </body>
 </html>
