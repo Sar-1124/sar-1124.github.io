@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>급식표</title>
+</head>
 <body>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.js" integrity="sha512-6DC1eE3AWg1bgitkoaRM1lhY98PxbMIbhgYCGV107aZlyzzvaWCW1nJW2vDuYQm06hXrW0As6OGKcIaAVWnHJw==" crossorigin="anonymous" referrerpolicy="no-referrer">
     </script>
@@ -15,7 +16,9 @@
             <th>메뉴</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody id="meal-data">
+        </tbody>
+    </table>
           <script>
             $.ajax({
       
@@ -29,13 +32,12 @@
                   let when = $(this).find("MLSV_YMD").text();
                   let dish = $(this).find("DDISH_NM").text();
                   document.write("<br>","<tr><td>","</br>"+ when +  "</td><td>", "</br>" + dish + "</td></tr>");
-              });
-              },
+                  document.title = "급식표";
+                });
+            }
               
             });
           </script>
-        </tbody>
       </table>
-</head>
 </body>
 </html>
