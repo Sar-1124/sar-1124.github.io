@@ -4,9 +4,40 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>동아리 소개</title>
+    <title>학사일정</title>
 </head>
 <body>
-    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.js" integrity="sha512-6DC1eE3AWg1bgitkoaRM1lhY98PxbMIbhgYCGV107aZlyzzvaWCW1nJW2vDuYQm06hXrW0As6OGKcIaAVWnHJw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    </script>
+        <h1>학사일정</h1>
+    <table>
+        <thead>
+          <tr>
+            <th>날짜</th>
+            <th>휴업일 내용</th>
+          </tr>
+        </thead>
+        <tbody id="meal-data">
+        </tbody>
+    </table>
+          <script>
+            $.ajax({
+              method: "GET",
+              url: "https://open.neis.go.kr/hub/SchoolSchedule?ATPT_OFCDC_SC_CODE=E10&MMEAL_SC_CODE=2&SD_SCHUL_CODE=7310332&KEY=281bd3064278465fbc378c3105b1ff4f&Type=xml",
+              dataType: "xml", //XMl 데이터임을 명시
+              data: {},
+              success: function(response){
+                  let rows = $(response).find("row");
+                  rows.each(function() {
+                  let when = $(this).find("AA_YMD").text();
+                  let dish = $(this).find("EVENT_NM").text();
+                  document.write("<tr><td>","</br>"+ when +  "</td><td>", "</br>" + dish + "</td></tr>");
+                  document.title = "학사일정";
+                });
+            }
+              
+            });
+          </script>
+      </table>
 </body>
 </html>
