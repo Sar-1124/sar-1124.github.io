@@ -1,43 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>학사일정</title>
+    <style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+      
+      th, td {
+        text-align: center;
+        padding: 10px;
+      }
+      
+      th {
+        background-color: #e5e5e5;
+      }
+      
+      td {
+        border-bottom: 1px solid #ddd;
+      }
+      
+      td:first-child {
+        width: 50%;
+        padding-right: 50px;
+      }
+      
+      td:last-child {
+        width: 50%;
+        padding-left: 50px;
+      }
+    </style>
 </head>
+
 <body>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.js" integrity="sha512-6DC1eE3AWg1bgitkoaRM1lhY98PxbMIbhgYCGV107aZlyzzvaWCW1nJW2vDuYQm06hXrW0As6OGKcIaAVWnHJw==" crossorigin="anonymous" referrerpolicy="no-referrer">
-    </script>
-        <h1>학사일정</h1>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.js"
+        integrity="sha512-6DC1eE3AWg1bgitkoaRM1lhY98PxbMIbhgYCGV107aZlyzzvaWCW1nJW2vDuYQm06hXrW0As6OGKcIaAVWnHJw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+        </script>
     <table>
         <thead>
-          <tr>
-            <th>날짜</th>
-            <th>휴업일 내용</th>
-          </tr>
+            <tr>
+                <th>날짜</th>
+                <th>휴업일 내용</th>
+            </tr>
         </thead>
-        <tbody id="meal-data">
+        <tbody id="holiday-data">
         </tbody>
     </table>
-          <script>
-            $.ajax({
-              method: "GET",
-              url: "https://open.neis.go.kr/hub/SchoolSchedule?ATPT_OFCDC_SC_CODE=E10&MMEAL_SC_CODE=2&SD_SCHUL_CODE=7310332&KEY=281bd3064278465fbc378c3105b1ff4f&Type=xml",
-              dataType: "xml", //XMl 데이터임을 명시
-              data: {},
-              success: function(response){
-                  let rows = $(response).find("row");
-                  rows.each(function() {
-                  let when = $(this).find("AA_YMD").text();
-                  let dish = $(this).find("EVENT_NM").text();
-                  document.write("<tr><td>","</br>"+ when +  "</td><td>", "</br>" + dish + "</td></tr>");
-                  document.title = "학사일정";
+    <script>
+        $.ajax({
+            method: "GET",
+            url: "https://open.neis.go.kr/hub/SchoolSchedule?ATPT_OFCDC_SC_CODE=E10&MMEAL_SC_CODE=2&SD_SCHUL_CODE=7310332&AA_FROM_YMD=20230301&KEY=281bd3064278465fbc378c3105b1ff4f&Type=xml",
+            dataType: "xml",
+            data: {},
+            success: function (response) {
+                let rows = $(response).find("row");
+                let table = "<table><thead><tr><th>날짜</th><th>공휴일 이름</th></tr></thead><tbody>";
+                rows.each(function () {
+                    let when = $(this).find("AA_YMD").text();
+                    let holiday = $(this).find("EVENT_NM").text();
+                    table += "<tr><td>" + when + "</td><td>" + holiday + "</td></tr>";
                 });
+                table += "</tbody></table>";
+                document.write(table);
+                document.title = "학사일정";
             }
-              
-            });
-          </script>
-      </table>
+        });
+    </script>
+    </table>
 </body>
+
 </html>
